@@ -7,7 +7,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>Simple J2EE 1.4 Webapp</name>
+  <name>EncryptionService</name>
   <url>http://maven.apache.org</url>
 
   <dependencies>
