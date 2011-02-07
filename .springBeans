@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beansProjectDescription>
 	<version>1</version>
-	<pluginVersion><![CDATA[2.2.6.200908051215-RELEASE]]></pluginVersion>
+	<pluginVersion><![CDATA[2.5.2.201101201000-SR2]]></pluginVersion>
 	<configSuffixes>
 		<configSuffix><![CDATA[xml]]></configSuffix>
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/com/beilers/service/resources/contexts/ApplicationContext.xml</config>
 	</configs>
 	<configSets>
 	</configSets>
