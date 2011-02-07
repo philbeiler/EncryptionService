@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+	<bean id="publicKeyDAO" class="com.beilers.service.dao.key.PublicKeyDao" />
+
+	<bean id="passwordDAO" class="com.beilers.service.dao.password.PasswordDao" />
+
+	<bean id="keyMakerService" class="com.beilers.service.KeyMakerService">
+		<property name="publicKeyDAO" ref="publicKeyDAO" />
+		<property name="parameters">
+			<bean
+				class="com.beilers.encryption.diffiehellman.parameters.DefaultParameters" />
+		</property>
+	</bean>
+
+
+	<bean id="passwordService" class="com.beilers.service.PasswordService">
+		<property name="passwordDao" ref="passwordDAO" />
+	</bean>
+
+
+	<bean id="publicKeyHandler" class="com.beilers.service.handler.GetPublicKey">
+		<property name="keyMakerService" ref="keyMakerService" />
+	</bean>
+
+	<bean id="passwordHandler" class="com.beilers.service.handler.GetPassword">
+		<property name="keyMakerService" ref="keyMakerService" />
+		<property name="passwordService" ref="passwordService" />
+	</bean>
+
+</beans>
