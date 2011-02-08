@@ -21,14 +21,9 @@
 	<rule ref="rulesets/strings.xml/StringBufferInstantiationWithChar" />
 	<rule ref="rulesets/strings.xml/UseEqualsToCompareStrings" />
 	<rule ref="rulesets/strings.xml/AvoidStringBufferField" />
-	<!--
-		<rule ref="rulesets/optimizations.xml/LocalVariableCouldBeFinal"/>
-	-->
+	<!-- <rule ref="rulesets/optimizations.xml/LocalVariableCouldBeFinal"/> -->
 	<rule ref="rulesets/optimizations.xml/MethodArgumentCouldBeFinal" />
-	<!--
-		<rule
-		ref="rulesets/optimizations.xml/AvoidInstantiatingObjectsInLoops"/>
-	-->
+	<!-- <rule ref="rulesets/optimizations.xml/AvoidInstantiatingObjectsInLoops"/> -->
 	<rule ref="rulesets/optimizations.xml/UseArrayListInsteadOfVector" />
 	<rule ref="rulesets/optimizations.xml/SimplifyStartsWith" />
 	<rule ref="rulesets/optimizations.xml/UseStringBufferForStringAppends" />
@@ -46,11 +41,9 @@
 	</rule>
 	<rule ref="rulesets/junit.xml/JUnitStaticSuite" />
 	<rule ref="rulesets/junit.xml/JUnitSpelling" />
-	<!--
-		<rule ref="rulesets/junit.xml/JUnitAssertionsShouldIncludeMessage"/>
-	-->
+	<!-- <rule ref="rulesets/junit.xml/JUnitAssertionsShouldIncludeMessage"/> -->
 	<rule ref="rulesets/junit.xml/JUnitTestsShouldIncludeAssert" />
-<!-- <rule ref="rulesets/junit.xml/TestClassWithoutTestCases"/> -->
+	<!-- <rule ref="rulesets/junit.xml/TestClassWithoutTestCases"/> -->
 	<rule ref="rulesets/junit.xml/UnnecessaryBooleanAssertion" />
 	<rule ref="rulesets/junit.xml/UseAssertEqualsInsteadOfAssertTrue" />
 	<rule ref="rulesets/junit.xml/UseAssertSameInsteadOfAssertTrue" />
@@ -78,7 +71,7 @@
 	</rule>
 	<rule ref="rulesets/design.xml/InstantiationToGetClass" />
 	<rule ref="rulesets/design.xml/IdempotentOperations" />
-<!-- <rule ref="rulesets/design.xml/SimpleDateFormatNeedsLocale"/> -->
+	<!-- <rule ref="rulesets/design.xml/SimpleDateFormatNeedsLocale"/> -->
 	<rule ref="rulesets/design.xml/ImmutableField" />
 	<rule ref="rulesets/design.xml/UseLocaleWithCaseConversions" />
 	<rule ref="rulesets/design.xml/AvoidProtectedFieldInFinalClass" />
@@ -149,9 +142,11 @@
 	<rule ref="rulesets/basic.xml/AvoidUsingHardCodedIP" />
 	<rule ref="rulesets/basic.xml/CheckResultSet" />
 	<rule ref="rulesets/basic.xml/AvoidMultipleUnaryOperators" />
-	<rule ref="rulesets/controversial.xml/UnnecessaryConstructor" />
-<!-- <rule ref="rulesets/controversial.xml/NullAssignment"/> -->
-<!-- <rule ref="rulesets/controversial.xml/OnlyOneReturn"/> -->
+	<rule ref="rulesets/controversial.xml/UnnecessaryConstructor">
+		<priority>1</priority>
+	</rule>
+	<!-- <rule ref="rulesets/controversial.xml/NullAssignment"/> -->
+	<!-- <rule ref="rulesets/controversial.xml/OnlyOneReturn"/> -->
 	<rule ref="rulesets/controversial.xml/UnusedModifier" />
 	<rule ref="rulesets/controversial.xml/AssignmentInOperand" />
 	<rule ref="rulesets/controversial.xml/AtLeastOneConstructor" />
@@ -163,12 +158,8 @@
 	</rule>
 	<rule ref="rulesets/controversial.xml/DefaultPackage" />
 	<rule ref="rulesets/controversial.xml/BooleanInversion" />
-	<!--
-		<rule ref="rulesets/controversial.xml/DataflowAnomalyAnalysis"/>
-	-->
-	<!--
-		<rule ref="rulesets/controversial.xml/AvoidFinalLocalVariable"/>
-	-->
+	<!-- <rule ref="rulesets/controversial.xml/DataflowAnomalyAnalysis"/> -->
+	<!-- <rule ref="rulesets/controversial.xml/AvoidFinalLocalVariable"/> -->
 	<rule ref="rulesets/controversial.xml/AvoidUsingShortType" />
 	<rule ref="rulesets/controversial.xml/AvoidUsingVolatile" />
 	<rule ref="rulesets/controversial.xml/AvoidUsingNativeCode" />
@@ -211,7 +202,7 @@
 	<rule ref="rulesets/strictexception.xml/DoNotThrowExceptionInFinally" />
 	<rule ref="rulesets/sunsecure.xml/MethodReturnsInternalArray" />
 	<rule ref="rulesets/sunsecure.xml/ArrayIsStoredDirectly" />
-<!-- <rule ref="rulesets/javabeans.xml/BeanMembersShouldSerialize"/> -->
+	<!-- <rule ref="rulesets/javabeans.xml/BeanMembersShouldSerialize"/> -->
 	<rule ref="rulesets/javabeans.xml/MissingSerialVersionUID" />
 	<rule ref="rulesets/finalizers.xml/EmptyFinalizer" />
 	<rule ref="rulesets/finalizers.xml/FinalizeOnlyCallsSuperFinalize" />
@@ -228,8 +219,8 @@
 	<rule ref="rulesets/j2ee.xml/DoNotCallSystemExit" />
 	<rule ref="rulesets/j2ee.xml/StaticEJBFieldShouldBeFinal" />
 	<rule ref="rulesets/j2ee.xml/DoNotUseThreads" />
-<!-- <rule ref="rulesets/naming.xml/ShortVariable"/> -->
-<!-- <rule ref="rulesets/naming.xml/LongVariable"/> -->
+	<!-- <rule ref="rulesets/naming.xml/ShortVariable"/> -->
+	<!-- <rule ref="rulesets/naming.xml/LongVariable"/> -->
 	<rule ref="rulesets/naming.xml/ShortMethodName" />
 	<rule ref="rulesets/naming.xml/VariableNamingConventions" />
 	<rule ref="rulesets/naming.xml/MethodNamingConventions" />
