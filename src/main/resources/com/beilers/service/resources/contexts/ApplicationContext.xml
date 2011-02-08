@@ -17,7 +17,7 @@
 	</bean>
 
 
-	<bean id="passwordService" class="com.beilers.service.PasswordService">
+	<bean id="passwordService" class="com.beilers.service.EncryptedDataService">
 		<property name="passwordDao" ref="passwordDAO" />
 	</bean>
 

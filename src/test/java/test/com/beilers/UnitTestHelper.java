@@ -9,7 +9,7 @@ import com.beilers.logging.jdk14.SingleLineFormatter;
 
 public class UnitTestHelper {
 
-    private static final File tmpDirectory = new File(System.getProperty("java.io.tmpdir"));
+    private static final File JAVA_IO_TMP = new File(System.getProperty("java.io.tmpdir"));
 
     static {
 
@@ -24,6 +24,6 @@ public class UnitTestHelper {
 
     // TODO: Need to add uniqueness
     protected File getUniqueTemporaryDirectory() {
-        return tmpDirectory;
+        return JAVA_IO_TMP;
     }
 }

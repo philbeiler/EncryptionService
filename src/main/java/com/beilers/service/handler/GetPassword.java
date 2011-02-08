@@ -13,15 +13,15 @@ import org.springframework.web.HttpRequestHandler;
 
 import com.beilers.encryption.diffiehellman.DiffieHellmanEncryption;
 import com.beilers.service.KeyMakerService;
-import com.beilers.service.PasswordService;
+import com.beilers.service.EncryptedDataService;
 
 public class GetPassword implements HttpRequestHandler {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(GetPassword.class);
     private KeyMakerService     keyMakerService;
-    private PasswordService     passwordService;
+    private EncryptedDataService     passwordService;
 
-    public void setPasswordService(final PasswordService passwordService) {
+    public void setPasswordService(final EncryptedDataService passwordService) {
         this.passwordService = passwordService;
     }
 

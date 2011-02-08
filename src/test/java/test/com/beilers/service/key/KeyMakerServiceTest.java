@@ -17,12 +17,11 @@ import com.beilers.service.KeyMakerService;
 
 public class KeyMakerServiceTest extends SpringUnitTestHelper {
 
-    private static final String TESTID            = "TESTID";
-
-    private static final File   PRIVATE_KEY_STORE = new File(System.getProperty("java.io.tmpdir"), TESTID + ".PRIVATE.KEY");
+    private static final String TESTID          = "TESTID";
+    private final File          privateKeyStore = new File(getUniqueTemporaryDirectory(), TESTID + ".PRIVATE.KEY");
 
     @Resource
-    KeyMakerService             keyMakerService;
+    private KeyMakerService     keyMakerService;
 
     @Test
     public void sampleUser() {
@@ -30,7 +29,7 @@ public class KeyMakerServiceTest extends SpringUnitTestHelper {
         final String privateKey = keyMakerService.create(TESTID);
         assertNotNull(privateKey);
         try {
-            FileUtils.writeStringToFile(PRIVATE_KEY_STORE, privateKey);
+            FileUtils.writeStringToFile(privateKeyStore, privateKey);
         }
         catch (final IOException e) {
             fail();

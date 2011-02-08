@@ -15,37 +15,46 @@ import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
 import com.beilers.encryption.diffiehellman.DiffieHellmanEncryption;
+import com.beilers.encryption.exception.EncryptionException;
 
-public class PasswordManagerClient {
+public class EncryptedDataClient {
 
     private static final File PRIVATE_KEY_STORE = new File(System.getProperty("java.io.tmpdir"), "TESTID.PRIVATE.KEY");
+    private String            encryptedDataServiceURI;
+
+    public String getEncryptedDataServiceURI() {
+        return encryptedDataServiceURI;
+    }
+
+    public void setEncryptedDataServiceURI(final String encryptedDataService) {
+        this.encryptedDataServiceURI = encryptedDataService;
+    }
 
     private String requestPublicKey() {
         final DefaultHttpClient client = new DefaultHttpClient();
 
         try {
-            final HttpPost method = new HttpPost("http://localhost:9090/EncryptionService/PublicKey");
+            final HttpPost method = new HttpPost(encryptedDataServiceURI + "/PublicKey");
             final HttpResponse response = client.execute(method);
             final HttpEntity entity = response.getEntity();
             if (entity != null) {
                 return EntityUtils.toString(entity);
             }
+            throw new EncryptionException("Invalid response from service");
         }
         catch (final Exception e) {
-            e.printStackTrace();
+            throw new EncryptionException("Unsucessfull communication with service", e);
         }
         finally {
             client.getConnectionManager().shutdown();
         }
-
-        return null;
     }
 
     private String requestPassword(final String userid, final String key) {
         final DefaultHttpClient client = new DefaultHttpClient();
 
         try {
-            final HttpPost method = new HttpPost("http://localhost:9090/EncryptionService/Password");
+            final HttpPost method = new HttpPost(encryptedDataServiceURI + "/Password");
             final List<NameValuePair> nvps = new ArrayList<NameValuePair>();
             nvps.add(new BasicNameValuePair("userid", userid));
             nvps.add(new BasicNameValuePair("key", key));
@@ -57,19 +66,17 @@ public class PasswordManagerClient {
             if (entity != null) {
                 return EntityUtils.toString(entity);
             }
-
+            throw new EncryptionException("Invalid response from service");
         }
         catch (final Exception e) {
-            e.printStackTrace();
+            throw new EncryptionException("Unsucessfull communication with service", e);
         }
         finally {
             client.getConnectionManager().shutdown();
         }
-
-        return null;
     }
 
-    public String getPassword(final String userId, final String key) {
+    public String requestData(final String userId, final String key) {
 
         final String publicKey = requestPublicKey();
         if (publicKey != null) {

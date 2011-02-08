@@ -3,7 +3,7 @@ package com.beilers.service;
 import com.beilers.service.dao.PasswordDaoInterface;
 import com.beilers.service.dao.password.PasswordKeyInfo;
 
-public class PasswordService {
+public class EncryptedDataService {
 
     private PasswordDaoInterface passwordDao;
 
