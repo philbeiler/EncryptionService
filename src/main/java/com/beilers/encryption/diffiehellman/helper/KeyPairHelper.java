@@ -22,10 +22,6 @@ public class KeyPairHelper {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(KeyPairHelper.class);
 
-    public KeyPairHelper() {
-        super();
-    }
-
     public void generateKeyFiles(final KeyPair keyPair, final String userid, final File directory) {
         try {
             FileUtils.writeStringToFile(new File(directory, userid.concat(".public.key")), //

@@ -20,9 +20,8 @@ import com.beilers.encryption.diffiehellman.parameters.DefaultParameters;
 
 public class KeyPairHelperTest extends UnitTestHelper {
 
-    private static final File TMP_DIR        = new File(System.getProperty("java.io.tmpdir"));
-    private File              publicKeyFile  = null;
-    private File              privateKeyFile = null;
+    private File publicKeyFile  = null;
+    private File privateKeyFile = null;
 
     @After
     public void done() {
@@ -36,6 +35,7 @@ public class KeyPairHelperTest extends UnitTestHelper {
 
     @Test
     public void keys() {
+        final File uniqueTmpDirectory = getUniqueTemporaryDirectory();
         final KeyPairHelper keyPairHelper = new KeyPairHelper();
 
         final KeyPair keyPair = keyPairHelper.generate(new DefaultParameters().generate());
@@ -45,9 +45,9 @@ public class KeyPairHelperTest extends UnitTestHelper {
         final String privateKeyString = keyPairHelper.generatePrivateKey(keyPair);
         assertNotNull(privateKeyString);
 
-        keyPairHelper.generateKeyFiles(keyPair, "SYSTEM", TMP_DIR);
-        publicKeyFile = new File(TMP_DIR, "SYSTEM.public.key");
-        privateKeyFile = new File(TMP_DIR, "SYSTEM.private.key");
+        keyPairHelper.generateKeyFiles(keyPair, "SYSTEM", uniqueTmpDirectory);
+        publicKeyFile = new File(uniqueTmpDirectory, "SYSTEM.public.key");
+        privateKeyFile = new File(uniqueTmpDirectory, "SYSTEM.private.key");
         assertNotNull(publicKeyFile);
         assertNotNull(privateKeyFile);
         assertTrue(publicKeyFile.length() + " Length", publicKeyFile.length() >= 590);
