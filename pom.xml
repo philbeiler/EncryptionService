@@ -12,7 +12,6 @@
 	<properties>
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.pmd.rulesetfiles>conventions/pmd.xml</maven.pmd.rulesetfiles>
 	</properties>
 
 	<dependencies>
@@ -164,10 +163,16 @@
 						<phase>compile</phase>
 					</execution>
 				</executions>
+				<configuration>
+					<linkXref>true</linkXref>
+					<configLocation>conventions/checkstyle.xml</configLocation>
+					<propertyExpansion>basedir=${project.basedir}</propertyExpansion>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
+				<version>2.5</version>
 				<executions>
 					<execution>
 						<goals>
@@ -177,6 +182,12 @@
 						<phase>compile</phase>
 					</execution>
 				</executions>
+				<configuration>
+					<targetJdk>1.6</targetJdk>
+					<rulesets>
+						<ruleset>${project.basedir}/conventions/pmd.xml</ruleset>
+					</rulesets>
+				</configuration>
 			</plugin>
 		</plugins>
 		<finalName>EncryptionService</finalName>
@@ -187,24 +198,17 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jxr-maven-plugin</artifactId>
+				<version>2.0-beta-1</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
 				<version>2.6</version>
-				<configuration>
-					<configLocation>conventions/checkstyle.xml</configLocation>
-					<propertyExpansion>basedir=${project.basedir}</propertyExpansion>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
 				<version>2.5</version>
-				<configuration>
-					<sourceEncoding>utf-8</sourceEncoding>
-					<targetJdk>1.6</targetJdk>
-				</configuration>
 			</plugin>
 
 		</plugins>
