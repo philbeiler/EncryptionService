@@ -30,7 +30,7 @@ public class KeyPairHelper {
         try {
             FileUtils.writeStringToFile(new File(directory, userid.concat(".public.key")), //
                                         generatePublicKey(keyPair));
-            FileUtils.writeStringToFile(new File(userid.concat(".private.key")), //
+            FileUtils.writeStringToFile(new File(directory, userid.concat(".private.key")), //
                                         generatePrivateKey(keyPair));
         }
         catch (final IOException e) {

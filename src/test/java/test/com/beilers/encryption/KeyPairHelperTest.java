@@ -12,14 +12,17 @@ import java.security.PublicKey;
 import org.junit.After;
 import org.junit.Test;
 
+import test.com.beilers.UnitTestHelper;
+
 import com.beilers.encryption.diffiehellman.helper.ByteHelper;
 import com.beilers.encryption.diffiehellman.helper.KeyPairHelper;
 import com.beilers.encryption.diffiehellman.parameters.DefaultParameters;
 
-public class KeyPairHelperTest {
+public class KeyPairHelperTest extends UnitTestHelper {
 
-    private File publicKeyFile  = null;
-    private File privateKeyFile = null;
+    private static final File TMP_DIR        = new File(System.getProperty("java.io.tmpdir"));
+    private File              publicKeyFile  = null;
+    private File              privateKeyFile = null;
 
     @After
     public void done() {
@@ -42,9 +45,9 @@ public class KeyPairHelperTest {
         final String privateKeyString = keyPairHelper.generatePrivateKey(keyPair);
         assertNotNull(privateKeyString);
 
-        keyPairHelper.generateKeyFiles(keyPair, "SYSTEM", new File("."));
-        publicKeyFile = new File("SYSTEM.public.key");
-        privateKeyFile = new File("SYSTEM.private.key");
+        keyPairHelper.generateKeyFiles(keyPair, "SYSTEM", TMP_DIR);
+        publicKeyFile = new File(TMP_DIR, "SYSTEM.public.key");
+        privateKeyFile = new File(TMP_DIR, "SYSTEM.private.key");
         assertNotNull(publicKeyFile);
         assertNotNull(privateKeyFile);
         assertTrue(publicKeyFile.length() + " Length", publicKeyFile.length() >= 590);

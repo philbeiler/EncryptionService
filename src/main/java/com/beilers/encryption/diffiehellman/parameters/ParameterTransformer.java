@@ -7,8 +7,7 @@ import javax.crypto.spec.DHParameterSpec;
 public class ParameterTransformer {
 
     public String convert(final DHParameterSpec spec) {
-        return "" + spec.getP() + "," + spec.getG() + "," + spec.getL();
-
+        return spec.getP() + "," + spec.getG() + "," + spec.getL();
     }
 
     public DHParameterSpec generate(final String parameters) {

@@ -3,10 +3,16 @@ package test.com.beilers.encryption.exception;
 import java.util.Collection;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import test.com.beilers.UnitTestHelper;
 
 import com.beilers.encryption.exception.EncryptionException;
 
-public class EncryptionExceptionTest {
+public class EncryptionExceptionTest extends UnitTestHelper {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(EncryptionExceptionTest.class);
 
     @Test
     public void simple() {
@@ -16,7 +22,7 @@ public class EncryptionExceptionTest {
         catch (final EncryptionException e) {
             final Collection<String> trace = e.getTrace(".*encryption.*");
             for (final String s : trace) {
-                System.out.println("---->" + s);
+                LOGGER.debug("-----> [{}]", s);
             }
         }
     }

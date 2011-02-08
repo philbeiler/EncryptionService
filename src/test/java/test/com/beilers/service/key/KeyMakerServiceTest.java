@@ -11,11 +11,11 @@ import javax.annotation.Resource;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
-import test.com.beilers.UnitTestHelper;
+import test.com.beilers.SpringUnitTestHelper;
 
 import com.beilers.service.KeyMakerService;
 
-public class KeyMakerServiceTest extends UnitTestHelper {
+public class KeyMakerServiceTest extends SpringUnitTestHelper {
 
     private static final String TESTID            = "TESTID";
 
