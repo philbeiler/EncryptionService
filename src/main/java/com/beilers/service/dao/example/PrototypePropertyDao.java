@@ -25,6 +25,7 @@ public class PrototypePropertyDao {
 
     public String find(final String key) {
         try {
+            LOGGER.info("Accessing properties from file [{}]", propertyFile);
             if (propertyFile.exists()) {
                 final Properties p = new Properties();
                 p.load(new FileInputStream(propertyFile));
@@ -40,6 +41,7 @@ public class PrototypePropertyDao {
     public void save(final String key, final String value) {
         final Properties p = new Properties();
         try {
+            LOGGER.info("Saving properties file [{}]", propertyFile);
             if (propertyFile.exists()) {
                 p.load(new FileInputStream(propertyFile));
             }
@@ -54,6 +56,7 @@ public class PrototypePropertyDao {
     public void remove(final String key) {
         final Properties p = new Properties();
         try {
+            LOGGER.info("Removing properties from file [{}]", propertyFile);
             if (propertyFile.exists()) {
                 p.load(new FileInputStream(propertyFile));
             }
