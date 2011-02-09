@@ -6,7 +6,7 @@
 
 	<bean id="publicKeyDAO" class="com.beilers.service.dao.key.PublicKeyDao" />
 
-	<bean id="passwordDAO" class="com.beilers.service.dao.password.PasswordDao" />
+	<bean id="payloadDAO" class="com.beilers.service.dao.payload.PayloadDao" />
 
 	<bean id="keyMakerService" class="com.beilers.service.KeyMakerService">
 		<property name="publicKeyDAO" ref="publicKeyDAO" />
@@ -17,18 +17,17 @@
 	</bean>
 
 
-	<bean id="passwordService" class="com.beilers.service.EncryptedDataService">
-		<property name="passwordDao" ref="passwordDAO" />
+	<bean id="encryptedDataService" class="com.beilers.service.EncryptedDataService">
+		<property name="payloadDao" ref="payloadDAO" />
 	</bean>
-
 
 	<bean id="publicKeyHandler" class="com.beilers.service.handler.GetPublicKey">
 		<property name="keyMakerService" ref="keyMakerService" />
 	</bean>
 
-	<bean id="passwordHandler" class="com.beilers.service.handler.GetPassword">
+	<bean id="encryptedDataHandler" class="com.beilers.service.handler.GetEncryptedData">
 		<property name="keyMakerService" ref="keyMakerService" />
-		<property name="passwordService" ref="passwordService" />
+		<property name="encryptedDataService" ref="encryptedDataService" />
 	</bean>
 
 </beans>

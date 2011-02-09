@@ -10,4 +10,7 @@ public interface KeyDaoInterface {
     void save(PrivateKeyInfo privateKeyInfo);
 
     String find(String userId);
+
+    void remove(String userID);
+
 }

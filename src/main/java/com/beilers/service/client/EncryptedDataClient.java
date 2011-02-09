@@ -19,7 +19,8 @@ import com.beilers.encryption.exception.EncryptionException;
 
 public class EncryptedDataClient {
 
-    private static final File PRIVATE_KEY_STORE = new File(System.getProperty("java.io.tmpdir"), "TESTID.PRIVATE.KEY");
+    private static final File TMP_DIRECTORY     = new File(System.getProperty("java.io.tmpdir"), System.getProperty("user.name"));
+    private static final File PRIVATE_KEY_STORE = new File(TMP_DIRECTORY, "TESTID.PRIVATE.KEY");
     private String            encryptedDataServiceURI;
 
     public String getEncryptedDataServiceURI() {
@@ -54,7 +55,7 @@ public class EncryptedDataClient {
         final DefaultHttpClient client = new DefaultHttpClient();
 
         try {
-            final HttpPost method = new HttpPost(encryptedDataServiceURI + "/Password");
+            final HttpPost method = new HttpPost(encryptedDataServiceURI + "/EncryptedData");
             final List<NameValuePair> nvps = new ArrayList<NameValuePair>();
             nvps.add(new BasicNameValuePair("userid", userid));
             nvps.add(new BasicNameValuePair("key", key));

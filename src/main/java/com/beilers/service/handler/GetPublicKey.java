@@ -24,8 +24,9 @@ public class GetPublicKey implements HttpRequestHandler {
     @Override
     public void handleRequest(final HttpServletRequest request, //
                               final HttpServletResponse response) throws IOException {
-        LOGGER.info("handle");
-        response.getWriter().print(keyMakerService.find("SYSTEM.PUBLIC"));
+        final String publicKey = keyMakerService.find("SYSTEM.PUBLIC");
+        LOGGER.info("handle public key request [{}]", publicKey);
+        response.getWriter().print(publicKey);
         response.setContentType("text/html");
     }
 }

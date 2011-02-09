@@ -1,17 +1,17 @@
-package com.beilers.service.dao.password;
+package com.beilers.service.dao.payload;
 
-public class PasswordKeyInfo {
+public class PayloadRequest {
 
     private String userId;
     private String key;
 
-    public PasswordKeyInfo(final String userId, final String key) {
+    public PayloadRequest(final String userId, final String key) {
         super();
         this.userId = userId;
         this.key = key;
     }
 
-    public PasswordKeyInfo() {
+    public PayloadRequest() {
         super();
     }
 

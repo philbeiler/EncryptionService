@@ -16,6 +16,7 @@ import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.beilers.encryption.diffiehellman.ParameterInterface;
 import com.beilers.encryption.exception.EncryptionException;
 
 public class KeyPairHelper {
@@ -91,7 +92,8 @@ public class KeyPairHelper {
         return new ByteHelper().toHex(privateKey);
     }
 
-    public KeyPair generate(final DHParameterSpec spec) {
+    public KeyPair generate(final ParameterInterface initializationParameters) {
+        final DHParameterSpec spec = initializationParameters.generate();
         try {
             final KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("DH");
             keyPairGenerator.initialize(spec);

@@ -19,7 +19,7 @@ public class KeyMakerService {
 
     public String create(final String userId) {
         final KeyPairHelper keyPairHelper = new KeyPairHelper();
-        final KeyPair keyPair = keyPairHelper.generate(parameters.generate());
+        final KeyPair keyPair = keyPairHelper.generate(parameters);
         final PublicKeyInfo pki = new PublicKeyInfo();
         pki.setUserid(userId);
         pki.setKey(keyPairHelper.generatePublicKey(keyPair));
@@ -33,7 +33,7 @@ public class KeyMakerService {
 
     public void createSystemId() {
         final KeyPairHelper keyPairHelper = new KeyPairHelper();
-        final KeyPair keyPair = keyPairHelper.generate(parameters.generate());
+        final KeyPair keyPair = keyPairHelper.generate(parameters);
         final PublicKeyInfo publicKeyInfo = new PublicKeyInfo();
         publicKeyInfo.setUserid("SYSTEM.PUBLIC");
         publicKeyInfo.setKey(keyPairHelper.generatePublicKey(keyPair));

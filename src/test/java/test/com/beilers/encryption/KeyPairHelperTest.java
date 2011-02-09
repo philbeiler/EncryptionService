@@ -38,16 +38,17 @@ public class KeyPairHelperTest extends UnitTestHelper {
         final File uniqueTmpDirectory = getPersonalTemporaryDirectory();
         final KeyPairHelper keyPairHelper = new KeyPairHelper();
 
-        final KeyPair keyPair = keyPairHelper.generate(new DefaultParameters().generate());
+        final KeyPair keyPair = keyPairHelper.generate(new DefaultParameters());
         assertNotNull(keyPair);
         final String publicKeyString = keyPairHelper.generatePublicKey(keyPair);
         assertNotNull(publicKeyString);
         final String privateKeyString = keyPairHelper.generatePrivateKey(keyPair);
         assertNotNull(privateKeyString);
 
-        keyPairHelper.generateKeyFiles(keyPair, "SYSTEM", uniqueTmpDirectory);
-        publicKeyFile = new File(uniqueTmpDirectory, "SYSTEM.public.key");
-        privateKeyFile = new File(uniqueTmpDirectory, "SYSTEM.private.key");
+        final String userid = "sample";
+        keyPairHelper.generateKeyFiles(keyPair, userid, uniqueTmpDirectory);
+        publicKeyFile = new File(uniqueTmpDirectory, userid + ".public.key");
+        privateKeyFile = new File(uniqueTmpDirectory, userid + ".private.key");
         assertNotNull(publicKeyFile);
         assertNotNull(privateKeyFile);
         assertTrue(publicKeyFile.length() + " Length", publicKeyFile.length() >= 590);
@@ -62,6 +63,5 @@ public class KeyPairHelperTest extends UnitTestHelper {
         final PrivateKey privateKey = keyPairHelper.loadPrivateKeyFile(privateKeyFile);
         assertNotNull(privateKey);
         assertEquals(privateKeyString, new ByteHelper().toHex(privateKey.getEncoded()));
-
     }
 }
