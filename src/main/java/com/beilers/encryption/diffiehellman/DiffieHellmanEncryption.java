@@ -46,7 +46,7 @@ public class DiffieHellmanEncryption {
         }
         catch (final Exception e) {
             LOGGER.error("Unable to generate secret key", e);
-            throw new EncryptionException("Unable to generate secret key");
+            throw new EncryptionException("Unable to generate secret key", e);
         }
     }
 

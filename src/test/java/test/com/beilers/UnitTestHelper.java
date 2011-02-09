@@ -9,10 +9,9 @@ import com.beilers.logging.jdk14.SingleLineFormatter;
 
 public class UnitTestHelper {
 
-    private static final File JAVA_IO_TMP = new File(System.getProperty("java.io.tmpdir"));
-
+    private final File personalTemporaryDirectory = new File(System.getProperty("java.io.tmpdir"),
+                                                          System.getProperty("user.name"));
     static {
-
         final Map<String, String> defaultLogging = new HashMap<String, String>();
         defaultLogging.put("org.springframework", "WARNING");
         defaultLogging.put("com.beilers", "ALL");
@@ -22,8 +21,10 @@ public class UnitTestHelper {
         configuration.setConsoleHandlerFormatter(new SingleLineFormatter());
     }
 
-    // TODO: Need to add uniqueness
-    protected File getUniqueTemporaryDirectory() {
-        return JAVA_IO_TMP;
+    protected File getPersonalTemporaryDirectory() {
+        if (!personalTemporaryDirectory.exists()) {
+            personalTemporaryDirectory.mkdirs();
+        }
+        return personalTemporaryDirectory;
     }
 }

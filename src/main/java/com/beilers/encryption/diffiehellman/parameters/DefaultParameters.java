@@ -24,10 +24,6 @@ public class DefaultParameters implements ParameterInterface {
             (byte) 0x4B, (byte) 0x22, (byte) 0x19, (byte) 0x26, (byte) 0xBA, (byte) 0xAB, (byte) 0xA2, (byte) 0x5E, (byte) 0xC3,
             (byte) 0x55, (byte) 0xE9, (byte) 0x2F, (byte) 0x78, (byte) 0xC7};
 
-    public DefaultParameters() {
-        super();
-    }
-
     /*
      * (non-Javadoc)
      * 
@@ -36,6 +32,5 @@ public class DefaultParameters implements ParameterInterface {
     @Override
     public DHParameterSpec generate() {
         return new DHParameterSpec(new BigInteger(1, MODULUS), BigInteger.valueOf(2));
-
     }
 }

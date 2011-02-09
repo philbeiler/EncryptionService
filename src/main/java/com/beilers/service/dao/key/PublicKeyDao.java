@@ -5,11 +5,16 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Properties;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.beilers.encryption.diffiehellman.helper.KeyPairHelper;
 import com.beilers.service.dao.KeyDaoInterface;
 
 public class PublicKeyDao implements KeyDaoInterface {
 
-    private static final File DATABASE = new File(System.getProperty("java.io.tmpdir"), "PUBLIC.KEYS");
+    private static final File   DATABASE = new File(System.getProperty("java.io.tmpdir"), "PUBLIC.KEYS");
+    private static final Logger LOGGER   = LoggerFactory.getLogger(KeyPairHelper.class);
 
     @Override
     public String find(final String userId) {
@@ -21,7 +26,7 @@ public class PublicKeyDao implements KeyDaoInterface {
             }
         }
         catch (final Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Unable to find public key", e);
         }
         return null;
     }
@@ -37,7 +42,7 @@ public class PublicKeyDao implements KeyDaoInterface {
             p.store(new FileOutputStream(DATABASE), "-- no comment --");
         }
         catch (final Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Unable to save public key information", e);
         }
     }
 
@@ -52,7 +57,7 @@ public class PublicKeyDao implements KeyDaoInterface {
             p.store(new FileOutputStream(DATABASE), "-- no comment --");
         }
         catch (final Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Unable to save private key information", e);
         }
     }
 

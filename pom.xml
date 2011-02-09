@@ -9,6 +9,14 @@
 
 	<name>EncryptionService Web App</name>
 
+	<distributionManagement>
+		<site>
+			<id>sharemyprogress.com.com</id>
+			<url>file:///opt/www/site</url>
+		</site>
+	</distributionManagement>
+
+
 	<properties>
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

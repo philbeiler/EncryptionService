@@ -18,7 +18,7 @@ import com.beilers.service.KeyMakerService;
 public class KeyMakerServiceTest extends SpringUnitTestHelper {
 
     private static final String TESTID          = "TESTID";
-    private final File          privateKeyStore = new File(getUniqueTemporaryDirectory(), TESTID + ".PRIVATE.KEY");
+    private final File          privateKeyStore = new File(getPersonalTemporaryDirectory(), TESTID + ".PRIVATE.KEY");
 
     @Resource
     private KeyMakerService     keyMakerService;

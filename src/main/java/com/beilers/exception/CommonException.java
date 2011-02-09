@@ -3,6 +3,7 @@ package com.beilers.exception;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
+@SuppressWarnings("PMD.UseSingleton")
 public class CommonException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;

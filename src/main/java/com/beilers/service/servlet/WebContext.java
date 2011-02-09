@@ -4,10 +4,6 @@ import org.springframework.web.context.support.XmlWebApplicationContext;
 
 public class WebContext extends XmlWebApplicationContext {
 
-    public WebContext() {
-        super();
-    }
-
     @Override
     protected String[] getDefaultConfigLocations() {
 

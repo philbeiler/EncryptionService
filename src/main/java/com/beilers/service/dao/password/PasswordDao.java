@@ -5,11 +5,16 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Properties;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.beilers.encryption.diffiehellman.helper.KeyPairHelper;
 import com.beilers.service.dao.PasswordDaoInterface;
 
 public class PasswordDao implements PasswordDaoInterface {
 
-    private static final File DATABASE = new File(System.getProperty("java.io.tmpdir"), "PASSWORDS.TXT");
+    private static final File   DATABASE = new File(System.getProperty("java.io.tmpdir"), "PASSWORDS.TXT");
+    private static final Logger LOGGER   = LoggerFactory.getLogger(KeyPairHelper.class);
 
     @Override
     public String find(final PasswordKeyInfo passwordKeyInfo) {
@@ -22,7 +27,7 @@ public class PasswordDao implements PasswordDaoInterface {
             }
         }
         catch (final Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Unable to find encrypted data", e);
         }
         return null;
 
@@ -39,7 +44,7 @@ public class PasswordDao implements PasswordDaoInterface {
             p.store(new FileOutputStream(DATABASE), "-- no comment --");
         }
         catch (final Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Unable to save encrypted data", e);
         }
     }
 

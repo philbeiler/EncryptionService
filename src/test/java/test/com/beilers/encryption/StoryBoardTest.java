@@ -25,7 +25,7 @@ public class StoryBoardTest extends UnitTestHelper {
 
     @Test
     public void example() {
-        final File uniqueTmpDirectory = getUniqueTemporaryDirectory();
+        final File uniqueTmpDirectory = getPersonalTemporaryDirectory();
         final KeyPairHelper keyPairHelper = new KeyPairHelper();
         // Generate User #1 Keys - Should be One Time Deal
         final DHParameterSpec dhSpec = new DefaultParameters().generate();

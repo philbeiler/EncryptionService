@@ -35,7 +35,7 @@ public class KeyPairHelperTest extends UnitTestHelper {
 
     @Test
     public void keys() {
-        final File uniqueTmpDirectory = getUniqueTemporaryDirectory();
+        final File uniqueTmpDirectory = getPersonalTemporaryDirectory();
         final KeyPairHelper keyPairHelper = new KeyPairHelper();
 
         final KeyPair keyPair = keyPairHelper.generate(new DefaultParameters().generate());

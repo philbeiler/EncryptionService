@@ -87,11 +87,15 @@
 	<rule ref="rulesets/design.xml/PositionLiteralsFirstInComparisons" />
 	<rule ref="rulesets/design.xml/UnnecessaryLocalBeforeReturn" />
 	<rule ref="rulesets/design.xml/NonThreadSafeSingleton" />
-	<rule ref="rulesets/design.xml/UncommentedEmptyMethod" />
+	<rule ref="rulesets/design.xml/UncommentedEmptyMethod">
+		<priority>1</priority>
+	</rule>
 	<rule ref="rulesets/design.xml/UncommentedEmptyConstructor" />
 	<rule ref="rulesets/design.xml/AvoidConstantsInterface" />
 	<rule ref="rulesets/design.xml/UnsynchronizedStaticDateFormatter" />
-	<rule ref="rulesets/design.xml/PreserveStackTrace" />
+	<rule ref="rulesets/design.xml/PreserveStackTrace">
+		<priority>1</priority>
+	</rule>
 	<rule ref="rulesets/design.xml/UseCollectionIsEmpty" />
 	<rule
 		ref="rulesets/design.xml/ClassWithOnlyPrivateConstructorsShouldBeFinal" />
@@ -168,7 +172,9 @@
 	<rule ref="rulesets/logging-java.xml/MoreThanOneLogger" />
 	<rule ref="rulesets/logging-java.xml/LoggerIsNotStaticFinal" />
 	<rule ref="rulesets/logging-java.xml/SystemPrintln" />
-	<rule ref="rulesets/logging-java.xml/AvoidPrintStackTrace" />
+	<rule ref="rulesets/logging-java.xml/AvoidPrintStackTrace">
+		<priority>1</priority>
+	</rule>
 	<rule ref="rulesets/imports.xml/DuplicateImports" />
 	<rule ref="rulesets/imports.xml/DontImportJavaLang" />
 	<rule ref="rulesets/imports.xml/UnusedImports" />
@@ -262,5 +268,7 @@
 	<rule ref="rulesets/unusedcode.xml/UnusedPrivateMethod">
 		<priority>1</priority>
 	</rule>
-	<rule ref="rulesets/unusedcode.xml/UnusedFormalParameter" />
+	<rule ref="rulesets/unusedcode.xml/UnusedFormalParameter">
+		<priority>1</priority>
+	</rule>
 </ruleset>

@@ -31,7 +31,7 @@ public class KeyPairHelper {
         }
         catch (final IOException e) {
             LOGGER.error("Unable to create file", e);
-            throw new EncryptionException("Unable to create key files");
+            throw new EncryptionException("Unable to create key files", e);
         }
     }
 
