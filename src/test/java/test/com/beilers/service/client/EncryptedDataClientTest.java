@@ -16,7 +16,7 @@ public class EncryptedDataClientTest extends UnitTestHelper {
     @Test
     public void simple() {
         final EncryptedDataClient encryptedDataClient = new EncryptedDataClient();
-        encryptedDataClient.setEncryptedDataServiceURI("http://localhost:9090/EncryptionService");
+        encryptedDataClient.setEncryptedDataServiceURI("http://localhost:8080/EncryptionService");
 
         LOGGER.info("Requesting Encrypted Information for [{}] and received [{}]",
                     DATABASE_PASSWORD_KEY,
