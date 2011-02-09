@@ -29,12 +29,9 @@ public class SimpleSpringEnabledServlet extends HttpServlet {
     }
 
     @Override
-    protected void service(final HttpServletRequest request, final HttpServletResponse response)
-
-    throws ServletException, IOException {
-
+    protected void service(final HttpServletRequest request, //
+                           final HttpServletResponse response) throws ServletException, IOException {
         this.target.handleRequest(request, response);
-
     }
 
 }

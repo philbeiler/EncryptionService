@@ -3,7 +3,6 @@ package com.beilers.service.handler;
 import java.io.IOException;
 import java.util.Map;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,14 +11,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.HttpRequestHandler;
 
 import com.beilers.encryption.diffiehellman.DiffieHellmanEncryption;
-import com.beilers.service.KeyMakerService;
 import com.beilers.service.EncryptedDataService;
+import com.beilers.service.KeyMakerService;
 
 public class GetPassword implements HttpRequestHandler {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(GetPassword.class);
-    private KeyMakerService     keyMakerService;
-    private EncryptedDataService     passwordService;
+    private static final Logger  LOGGER = LoggerFactory.getLogger(GetPassword.class);
+    private KeyMakerService      keyMakerService;
+    private EncryptedDataService passwordService;
 
     public void setPasswordService(final EncryptedDataService passwordService) {
         this.passwordService = passwordService;
@@ -31,7 +30,7 @@ public class GetPassword implements HttpRequestHandler {
 
     @Override
     public void handleRequest(final HttpServletRequest request, //
-                              final HttpServletResponse response) throws ServletException, IOException {
+                              final HttpServletResponse response) throws IOException {
         LOGGER.info("handle-password");
         final Map<String, String[]> parameterMap = request.getParameterMap();
         final String userId = parameterMap.get("userid")[0];

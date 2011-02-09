@@ -2,7 +2,6 @@ package com.beilers.service.handler;
 
 import java.io.IOException;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -24,7 +23,7 @@ public class GetPublicKey implements HttpRequestHandler {
 
     @Override
     public void handleRequest(final HttpServletRequest request, //
-                              final HttpServletResponse response) throws ServletException, IOException {
+                              final HttpServletResponse response) throws IOException {
         LOGGER.info("handle");
         response.getWriter().print(keyMakerService.find("SYSTEM.PUBLIC"));
         response.setContentType("text/html");
