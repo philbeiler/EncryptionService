@@ -112,6 +112,7 @@
 
 	</dependencies>
 
+	<url>www.sharemyprogress.com/EncryptionService</url>
 	<ciManagement>
 		<system>Jenkins</system>
 		<url>http://sharemyprogress.com:8080/jenkins/job/EncyptionService</url>
