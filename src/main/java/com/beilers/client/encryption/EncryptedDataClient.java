@@ -1,4 +1,4 @@
-package com.beilers.service.client;
+package com.beilers.client.encryption;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import com.beilers.encryption.exception.EncryptionException;
 
 public class EncryptedDataClient {
 
-    private static final File TMP_DIRECTORY     = new File(System.getProperty("java.io.tmpdir"), System.getProperty("user.name"));
+    private static final File TMP_DIRECTORY     = new File("/tmp", System.getProperty("user.name"));
     private static final File PRIVATE_KEY_STORE = new File(TMP_DIRECTORY, "TESTID.PRIVATE.KEY");
     private String            encryptedDataServiceURI;
 
