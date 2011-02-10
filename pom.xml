@@ -112,6 +112,18 @@
 
 	</dependencies>
 
+	<ciManagement>
+		<system>Jenkins</system>
+		<url>http://sharemyprogress.com:8080/jenkins/job/EncyptionService</url>
+	</ciManagement>
+	<inceptionYear>2011</inceptionYear>
+	<scm>
+		<url>https://philbeiler@github.com/philbeiler/EncryptionService.git</url>
+	</scm>
+	<organization>
+		<name>Share My Progress</name>
+		<url>www.sharemyprogress.com</url>
+	</organization>
 	<build>
 		<plugins>
 			<plugin>
