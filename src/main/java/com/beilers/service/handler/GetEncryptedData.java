@@ -31,10 +31,12 @@ public class GetEncryptedData implements HttpRequestHandler {
     @Override
     public void handleRequest(final HttpServletRequest request, //
                               final HttpServletResponse response) throws IOException {
-        LOGGER.info("handle-encrypted-data-request");
+        @SuppressWarnings("unchecked")
         final Map<String, String[]> parameterMap = request.getParameterMap();
         final String userId = parameterMap.get("userid")[0];
         final String encryptedKey = parameterMap.get("key")[0];
+
+        LOGGER.info("handle-encrypted-data-request");
 
         // KeyPairHelper keyPairHelper = new KeyPairHelper();
         final DiffieHellmanEncryption encrypter = new DiffieHellmanEncryption(keyMakerService.getPrivateKey(), //
