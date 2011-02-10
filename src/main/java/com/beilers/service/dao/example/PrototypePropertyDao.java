@@ -16,7 +16,7 @@ public class PrototypePropertyDao {
     private final File          propertyFile;
 
     protected PrototypePropertyDao(final String filename) {
-        final File userTmp = new File(System.getProperty("java.io.tmpdir"), System.getProperty("user.name"));
+        final File userTmp = new File("/tmp", System.getProperty("user.name"));
         if (!userTmp.exists()) {
             userTmp.mkdirs();
         }
