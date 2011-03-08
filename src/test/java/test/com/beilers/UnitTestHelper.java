@@ -19,6 +19,7 @@ public class UnitTestHelper {
         final Configuration configuration = new Configuration();
         configuration.setConfiguration(defaultLogging);
         configuration.setConsoleHandlerFormatter(new SingleLineFormatter());
+        // Test
     }
 
     protected File getPersonalTemporaryDirectory() {
